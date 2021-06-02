@@ -47,6 +47,22 @@ public class ReservaImpl implements IGenericRepo<Reserva> {
             + "group by Aforo) a\n"
             + "where reserva=aforo;";
 
+    private static final String SQL_LISTARESERVAALL = "select r.idReserva,\n"
+            + "       c.Nombres,\n"
+            + "	   c.ApellidoMaterno,\n"
+            + "	   c.ApellidoMaterno Apellidos,\n"
+            + "	   r.Fecha Fecha_Reserva,\n"
+            + "	   h.Hora Hora_Reserva,\n"
+            + "	   s.Descripcion Sala,\n"
+            + "	   r.Estado\n"
+            + "from reserva r,\n"
+            + "	 horas h,\n"
+            + "	 sala s,\n"
+            + "	 cliente c\n"
+            + "where c.idCliente=r.idCliente\n"
+            + "and r.Hora=h.idHora\n"
+            + "and r.idSala=s.idSala\n"
+            + "order by r.Fecha,h.hora";
     private static final String SQL_VALIDARESERVA = "select * from reserva r where r.idCliente=? and r.Fecha=?";
     private static final String SQL_LISTARESERVA = "select r.idReserva,\n"
             + "	   r.Fecha,\n"
@@ -161,7 +177,38 @@ public class ReservaImpl implements IGenericRepo<Reserva> {
 
     @Override
     public List<Reserva> selectAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Reserva> list = new ArrayList<Reserva>();
+        try {
+            pstm = conn.getConnection().prepareStatement(SQL_LISTARESERVAALL);
+            res = pstm.executeQuery();
+
+            while (res.next()) {
+                Cliente c = new Cliente();
+                c.setNombres(res.getString(2));
+                c.setApepat(res.getString(3));
+                c.setApemat(res.getString(4));
+                
+
+                Reserva r = new Reserva();
+                r.setIdReserva(res.getInt(1));
+                r.setFecha(res.getString(5));
+                r.setEstado(res.getBoolean(8));
+                r.setIdcliente(c);
+                Hora h = new Hora();
+                h.setHora(res.getString(6));
+                r.setHora(h);
+
+                Sala s = new Sala();
+                s.setDescripcion(res.getString(7));
+                r.setIdsala(s);
+
+                list.add(r);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al consultar" + e.getMessage());
+            e.printStackTrace();
+        }
+        return list;
     }
 
     @Override
@@ -252,7 +299,7 @@ public class ReservaImpl implements IGenericRepo<Reserva> {
                 Reserva r = new Reserva();
                 r.setIdReserva(res.getInt(1));
                 r.setFecha(res.getString(2));
-                
+
                 Hora h = new Hora();
                 h.setHora(res.getString(3));
                 r.setHora(h);

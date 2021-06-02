@@ -6,9 +6,11 @@
 package com.gym.controller;
 
 import com.gym.bean.Cliente;
+import com.gym.bean.Entrenador;
 import com.gym.bean.Hora;
 import com.gym.bean.Reserva;
 import com.gym.bean.Sala;
+import com.gym.repo.impl.EntrenadorImpl;
 import com.gym.repo.impl.ReservaImpl;
 import java.io.IOException;
 import java.text.ParseException;
@@ -81,6 +83,9 @@ public class ReservaController extends HttpServlet {
                 break;
             case "listar":
                 listar(request, response);
+                break;
+            case "mostrara":
+                mostrarall(request, response);
                 break;
         }
     }
@@ -203,5 +208,15 @@ public class ReservaController extends HttpServlet {
 //        List<Cliente> listaCliente = clienteDAO.selectAll();
 //        request.setAttribute("lista", listaCliente);
 //        request.getRequestDispatcher("lista_clientes.jsp").forward(request, response);
+    }
+    
+    
+    protected void mostrarall(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        ReservaImpl reservaDAO = new ReservaImpl();
+
+        List<Reserva> listaReserva = reservaDAO.selectAll();
+        request.setAttribute("lista", listaReserva);
+        request.getRequestDispatcher("lista_reserva_admin.jsp").forward(request, response);
     }
 }

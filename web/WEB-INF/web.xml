@@ -12,8 +12,17 @@
         <servlet-name>ReservaController</servlet-name>
         <servlet-class>com.gym.controller.ReservaController</servlet-class>
     </servlet>
-   
-
+    
+    <servlet>
+        <servlet-name>EntrenadorController</servlet-name>
+        <servlet-class>com.gym.controller.EntrenadorController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>com.gym.controller.Logout</servlet-class>
+    </servlet>
+ 
     <servlet-mapping>
         <servlet-name>UsuarioController</servlet-name>
         <url-pattern>/usuariocontroller.do</url-pattern>
@@ -26,11 +35,14 @@
         <servlet-name>ReservaController</servlet-name>
         <url-pattern>/reservacontroller.do</url-pattern>
     </servlet-mapping>
-    
-    
-   
-    
-   
+    <servlet-mapping>
+        <servlet-name>EntrenadorController</servlet-name>
+        <url-pattern>/entrenadorcontroller.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/cerrar.do</url-pattern>
+    </servlet-mapping>
     
     <session-config>
         <session-timeout>

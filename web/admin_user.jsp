@@ -2,12 +2,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 
-HttpSession objsession= request.getSession(false);
-String usuario = (String)objsession.getAttribute("userName");
-String tipoUsuario = (String)objsession.getAttribute("tipoUsuario");
-if(tipoUsuario.equals("admin") || usuario.equals("")){
-    response.sendRedirect("error.jsp");
-}
+    HttpSession objsession = request.getSession(false);
+    String usuario = (String) objsession.getAttribute("userName");
+    String tipoUsuario = (String) objsession.getAttribute("tipoUsuario");
+
+    if (usuario == null || tipoUsuario == null) {
+        response.sendRedirect("error.jsp");
+        return;
+    }
+
+    if (tipoUsuario.equals("admin") || usuario.equals("")) {
+        response.sendRedirect("error.jsp");
+    }
 
 %>
 
@@ -29,7 +35,7 @@ if(tipoUsuario.equals("admin") || usuario.equals("")){
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
         <!--PAGE LEVEL STYLES-->
         <link href="assets/css/pricing.css" rel="stylesheet" />
-     
+
     </head>
     <body>
         <div id="wrapper">
@@ -48,7 +54,7 @@ if(tipoUsuario.equals("admin") || usuario.equals("")){
 
                     <!--<a href="#" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>-->
                     <!--<a href="message-task.html" class="btn btn-primary" title="New Task"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>-->
-                    <a href="index.jsp" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+                    <a href="cerrar.do" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
 
                 </div>
             </nav>
@@ -61,9 +67,9 @@ if(tipoUsuario.equals("admin") || usuario.equals("")){
                                 <img src="assets/img/user.png" class="img-thumbnail" />
 
                                 <div class="inner-text">
-                                   <!-- Jhon Deo Alex-->
+                                    <!-- Jhon Deo Alex-->
                                     <br />
-                                   <!-- <small>Last Login : 2 Weeks Ago </small>-->
+                                    <!-- <small>Last Login : 2 Weeks Ago </small>-->
                                 </div>
                             </div>
 
@@ -77,8 +83,8 @@ if(tipoUsuario.equals("admin") || usuario.equals("")){
                             <a href=""><i class="fa fa-desktop "></i>Reserva<span class="fa arrow"></span></a>   
                             <ul class="nav nav-second-level">
                                 <li>
-                                     <input type="hidden" name="txtCliente" id="txtCliente" value="${userName}">
-                                    <a href="reservacontroller.do?txtProceso=mostrar&correo=<c:out value='${userName}'/>"><i class="fa fa-toggle-on"></i>Nueva Reserva</a>
+                                    <input type="hidden" name="txtCliente" id="txtCliente" value="${userName}">
+                                        <a href="reservacontroller.do?txtProceso=mostrar&correo=<c:out value='${userName}'/>"><i class="fa fa-toggle-on"></i>Nueva Reserva</a>
                                 </li>
                                 <li>
                                     <a href="reservacontroller.do?txtProceso=listar&correo=<c:out value='${userName}'/>"><i class="fa fa-bell "></i>Listar Reservas</a>
@@ -116,11 +122,11 @@ if(tipoUsuario.equals("admin") || usuario.equals("")){
 
                                         <ul class="plan">
                                             <li class="price"><strong>S/. 25</strong><i class="fa fa-dollar"></i><small>al mes</small></li>
-                                            <p>ESTE PLAN SOLO SE PUEDE COMPRAR UNA VEZ. Este plan es para 1 mes únicamente y no se puede adquirir 2 o más veces. Únicamente para nuevos afiliados. </p>
+                                            <p>ESTE PLAN SOLO SE PUEDE COMPRAR UNA VEZ. Este plan es para 1 mes &uacute;nicamente y no se puede adquirir 2 o m&aacute;s veces. &Uacute;nicamente para nuevos afiliados. </p>
                                         </ul>
                                     </div>
                                     <div class="panel-footer">
-                                        <a href="#" class="btn btn-danger btn-block btn-lg adjust-border-radius">BUY NOW</a>
+                                        <a href="#" class="btn btn-danger btn-block btn-lg adjust-border-radius">Contratar</a>
                                     </div>
                                 </div>
                             </div>
@@ -132,12 +138,12 @@ if(tipoUsuario.equals("admin") || usuario.equals("")){
                                     <div class="panel-body">
 
                                         <ul class="plan">
-                                            <li class="price"><strong>45</strong> <i class="fa fa-dollar"></i><small>/ month</small></li>
-                                            
+                                            <li class="price"><strong>S/. 45</strong> <i class="fa fa-dollar"></i><small>al mes</small></li>
+
                                         </ul>
                                     </div>
                                     <div class="panel-footer">
-                                        <a href="#" class="btn btn-primary btn-block btn-lg adjust-border-radius">BUY NOW</a>
+                                        <a href="#" class="btn btn-primary btn-block btn-lg adjust-border-radius">Contratar</a>
                                     </div>
                                 </div>
                             </div>
@@ -149,12 +155,12 @@ if(tipoUsuario.equals("admin") || usuario.equals("")){
                                     <div class="panel-body">
 
                                         <ul class="plan">
-                                            <li class="price"><strong>95</strong> <i class="fa fa-dollar"></i><small>/ month</small></li>
-                                            
+                                            <li class="price"><strong>S/. 95</strong> <i class="fa fa-dollar"></i><small>al mes</small></li>
+
                                         </ul>
                                     </div>
                                     <div class="panel-footer">
-                                        <a href="#" class="btn btn-success btn-block btn-lg adjust-border-radius">BUY NOW</a>
+                                        <a href="#" class="btn btn-success btn-block btn-lg adjust-border-radius">Contratar</a>
                                     </div>
                                 </div>
                             </div>
@@ -167,12 +173,12 @@ if(tipoUsuario.equals("admin") || usuario.equals("")){
                                     <div class="panel-body">
 
                                         <ul class="plan">
-                                            <li class="price"><strong>195</strong> <i class="fa fa-dollar"></i><small>/ month</small></li>
-                                            
+                                            <li class="price"><strong>S/. 195</strong> <i class="fa fa-dollar"></i><small>al mes</small></li>
+
                                         </ul>
                                     </div>
                                     <div class="panel-footer">
-                                        <a href="#" class="btn btn-warning btn-block btn-lg adjust-border-radius">BUY NOW</a>
+                                        <a href="#" class="btn btn-warning btn-block btn-lg adjust-border-radius">Contratar</a>
                                     </div>
                                 </div>
                             </div>
@@ -289,21 +295,21 @@ if(tipoUsuario.equals("admin") || usuario.equals("")){
                     <div class="row">
 
                         <div class="col-md-12">
-                            
+
                             <br />
                             <!-- 16:9 aspect ratio -->
                             <div class="embed-responsive embed-responsive-16by9">
                                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/xSI2uxfLxE0"></iframe> 
                             </div>
                         </div>
-                      
+
                     </div>
                     <!--/.Row-->
                     <hr />
-            
+
                     <!--/.Row-->
                     <hr />
-                
+
                     <!--/.ROW-->
 
                 </div>

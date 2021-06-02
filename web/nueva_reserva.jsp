@@ -4,6 +4,12 @@
     HttpSession objsession = request.getSession(false);
     String usuario = (String) objsession.getAttribute("userName");
     String tipoUsuario = (String) objsession.getAttribute("tipoUsuario");
+
+    if (usuario == null || tipoUsuario == null) {
+        response.sendRedirect("error.jsp");
+        return;
+    }
+
     if (tipoUsuario.equals("admin") || usuario.equals("")) {
         response.sendRedirect("error.jsp");
     }
@@ -48,7 +54,7 @@
 
                                 <!--<a href="#" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>-->
                                 <!--<a href="#" class="btn btn-primary" title="New Task"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>-->
-                                <a href="index.jsp" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+                                <a href="cerrar.do" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
 
 
                             </div>
@@ -79,7 +85,7 @@
                                         <ul class="nav nav-second-level">
                                             <li>
                                                 <input type="hidden" name="txtCliente" id="txtCliente" value="${userName}">
-                                                <a href="reservacontroller.do?txtProceso=mostrar&correo=<c:out value='${userName}'/>"><i class="fa fa-toggle-on"></i>Nueva Reserva</a>
+                                                    <a href="reservacontroller.do?txtProceso=mostrar&correo=<c:out value='${userName}'/>"><i class="fa fa-toggle-on"></i>Nueva Reserva</a>
                                             </li>
                                             <li>
                                                 <a href="reservacontroller.do?txtProceso=listar&correo=<c:out value='${userName}'/>"><i class="fa fa-bell "></i>Listar Reservas</a>
@@ -168,14 +174,13 @@
 
                                                                 </form>
                                                                 <br>
-                                                                    <% if (request.getAttribute("validaciones") != ""  && request.getAttribute("validaciones")!=null ) { 
-                                                                    
+                                                                    <% if (request.getAttribute("validaciones") != "" && request.getAttribute("validaciones") != null) {
+
                                                                     %>
-                                                                    
+
                                                                     <div id="flotante" class="alert alert-danger" >${requestScope.validaciones}</div>
 
-                                                                    <%
-                                                                        }
+                                                                    <%                                                                        }
 
                                                                     %>
 
@@ -210,14 +215,14 @@
 
                                                                     <script type="text/javascript">
                                                                         $(document).ready(function () {
-                                                                        $('#datepicker').datepicker();
+                                                                            $('#datepicker').datepicker();
                                                                         });
-                                                                     
-                                                                     
+
+
                                                                         function mostrar() {
                                                                             div = document.getElementById('flotante');
                                                                             div.style.display = '';
-                                                                            }
+                                                                        }
 
 
                                                                     </script>

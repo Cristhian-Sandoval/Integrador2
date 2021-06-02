@@ -21,45 +21,84 @@
                 </div>
             </div>
             <br>
-            <div class="row ">
+                <div class="row ">
 
-                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
 
-                   
+
                         <div class="panel panel-danger">
                             <div class="panel-heading">
                                 Nuevo registro 
                             </div>
                             <div class="panel-body">
                                 <form role="form" action="usuariocontroller.do">
-                                     <input type="hidden" name="txtProceso" value="nuevo">
+                                    <input type="hidden" name="txtProceso" value="nuevo">
 
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input class="form-control" type="text" id="email" name="email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input class="form-control" type="password" id="password" name="password" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Confirma Password </label>
-                                        <input class="form-control" type="password" id="password2" name="password2" required>
-                                    </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input class="form-control" type="email" id="email" name="email"  required>
+                                                <span style="color:red" class="form_error" id="invalid_email">Ingrese un correo válido </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input class="form-control" type="password" id="password" name="password" pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*" title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al menor un dígito" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Confirma Password </label>
+                                            <input class="form-control" type="password" id="password2" name="password2" pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*" title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al menor un dígito" required>
+                                        </div>
 
-                                    <button type="submit" class="btn btn-danger">Registrar</button>
+                                        <button type="submit" id="submit"value class="btn btn-danger">Registrar</button>
 
                                 </form>
                             </div>
                         </div>
-                  
+
+
+                    </div>
+
 
                 </div>
 
-
-            </div>
-
         </div>
+        <!-- JQUERY SCRIPTS -->
+        <script src="assets/js/jquery-1.10.2.js"></script>
+        <!-- BOOTSTRAP SCRIPTS -->
+        <script src="assets/js/bootstrap.js"></script>
+        <!-- METISMENU SCRIPTS -->
+        <script src="assets/js/jquery.metisMenu.js"></script>
+        <!-- CUSTOM SCRIPTS -->
+        <script src="assets/js/custom.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                console.log("Entra");
+                console.log("Entra 2");
+                $('.form_error').hide();
+                $('#submit').click(function () {
+                    var email = $('#email').val();
+                    console.log("correo " + $('#email').val());
+
+                    if (IsEmail(email) == false) {
+                        $('#invalid_email').show();
+                        return false;
+                    }
+                });
+
+                $("#email").focus(function () {
+                    $('.form_error').hide();
+                });
+            });
+
+            function IsEmail(email) {
+                var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if (!regex.test(email)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        </script>
 
     </body>
 </html>

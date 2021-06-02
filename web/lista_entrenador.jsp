@@ -96,13 +96,11 @@
                         <li>
                             <a href="#"><i class="fa fa-yelp "></i>Reservas <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                 <li>
-                                    <a href="reservacontroller.do?txtProceso=mostrara"><i class="fa fa-users "></i>Listar Reservas</a>
-                                </li>   
+
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-flash "></i>Entrenadores <span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-flash "></i>Entrenadores </a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="nuevo_entrenador.jsp"><i class="fa fa-user"></i>Nuevo Entrenador</a>
@@ -132,7 +130,7 @@
                 <div id="page-inner">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="page-head-line">Lista de clientes</h1>
+                            <h1 class="page-head-line">Lista de entrenadores</h1>
                             <!--<h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>-->
 
                         </div>
@@ -140,11 +138,11 @@
 
                     <!-- /. ROW  -->
                     <div class="row">
-                        <div class="col-md-11">
+                        <div class="col-md-12">
                             <!--    Hover Rows  -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Clientes 
+                                    Entrenadores 
                                 </div>
                                 <div class="panel-body">
                                     <div class="table-responsive">
@@ -152,28 +150,30 @@
                                             <thead>
                                                 <tr>
                                                     <th>Nombres</th>   <!-- Celda de cabecera de la columna 1 -->
-                                                    <th>Apellidos</th>   <!-- Celda de cabecera de la columna 2 -->
-                                                    <th>Correo</th>   <!-- Celda de cabecera de la columna 3 -->
-                                                    <th>DNI</th>
-                                                    <th>Tel&eacutefono</th>
+                                                    <th>Apellido Paterno</th>   <!-- Celda de cabecera de la columna 2 -->
+                                                    <th>Apellido Materno</th>
+                                                    <th>Tel&eacutefono</th>   <!-- Celda de cabecera de la columna 3 -->
+                                                    <th>Correo</th>
+                                                    <th>Dni</th>
                                                     <th>Estado</th>                            
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <c:forEach items="${lista}" var="cliente" >
+                                                <c:forEach items="${lista}" var="entrenador" >
                                                     <tr>
-                                                        <!--<td>${cliente.getId()}</td>-->
-                                                        <td>${cliente.getNombres()}</td>
-                                                        <td>${cliente.getApepat()} ${cliente.getApemat()}</td>  
-                                                        <td>${cliente.getCorreo()}</td>
-                                                        <td>${cliente.getNumdoc()}</td>
-                                                        <td>${cliente.getTelefono()}</td>
+                                                        <!--<td>${entrenador.getId()}</td>-->
+                                                        <td>${entrenador.getNombre()}</td>
+                                                        <td>${entrenador.getApellidopat()}</td>  
+                                                         <td>${entrenador.getApellidomat()}</td>
+                                                        <td>${entrenador.getCelular()}</td>
+                                                        <td>${entrenador.getCorreo()}</td>
+                                                        <td>${entrenador.getDni()}</td>
 
-                                    <!--<td><td>${cliente.isEstado()}</td>-->
+                                    <!--<td><td>${entrenador.isEstado()}</td>-->
                                                         <td>
                                                             <c:choose>  
-                                                                <c:when test="${cliente.isEstado()}">
+                                                                <c:when test="${entrenador.isEstado()}">
                                                                     Activo
                                                                 </c:when>
                                                                 <c:otherwise>
@@ -182,9 +182,9 @@
                                                             </c:choose>
                                                         </td>
                                                         <td>            
-                                                            <input type="hidden" name="id" id="id_cli" value="${cliente.getId()}">
+                                                            <input type="hidden" name="id" id="id_cli" value="${entrenador.getId()}">
                                                                 <a href="#editClienteModal" class="edit" title="Editar" data-toggle="modal"><i class="fa fa-edit"></i></a>                     
-                                                                <a href="#" data-href="clientecontroller.do?txtProceso=borrar&id=<c:out value='${cliente.id}'/>" data-target="#deleteEmployeeModal" class="delete" title="Borrar" data-toggle="modal"><i class="fa fa-trash"></i></a>
+                                                                <a href="#" data-href="entrenadorcontroller.do?txtProceso=borrar&id=<c:out value='${entrenador.id}'/>" data-target="#deleteEmployeeModal" class="delete" title="Borrar" data-toggle="modal"><i class="fa fa-trash"></i></a>
                                                         </td>
                                                     </tr>
                                                 </c:forEach>
@@ -206,16 +206,16 @@
             <!-- /. PAGE WRAPPER  -->
         </div>
         <!-- /. WRAPPER  -->
-        <!--MODAL ELIMINAR CLIENTE-->
+        <!--MODAL ELIMINAR ENTRENADOR-->
         <div id="deleteEmployeeModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">                                                  
                     <div class="modal-header">						
-                        <h4 class="modal-title">Eliminar Cliente</h4>
+                        <h4 class="modal-title">Eliminar Entrenador</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <p>Estas seguro que quieres eliminar este cliente?</p>
+                        <p>Estas seguro que quieres eliminar este entrenador?</p>
                         <p class="text-warning"><small>Esta acci&oacute;n no se puede regresar.</small></p>
                     </div>
                     <div class="modal-footer">
@@ -228,14 +228,14 @@
 
 
 
-        <!--MODAL EDITAR CLIENTE -->
+        <!--MODAL EDITAR ENTRENADOR -->
 
         <div id="editClienteModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="clientecontroller.do" method="post">
+                    <form action="entrenadorcontroller.do" method="post">
                         <div class="modal-header">						
-                            <h4 class="modal-title">Editar Cliente</h4>
+                            <h4 class="modal-title">Editar Entrenador</h4>
                             <input type="hidden" name="id" id="id_cli">
                                 <input type="hidden" name="txtProceso" value="editar">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -248,22 +248,22 @@
                                         <div class="form-group">
                                             <label>Apellido Paterno</label>
                                             <input id="apepat" name="apepat" type="text" class="form-control" pattern="[A-Za-z]+" required>
-                                        </div>
+                                        </div>  
                                         <div class="form-group">
                                             <label>Apellido Materno</label>
-                                            <input id="apemat" name="apemat" type="text" class="form-control" pattern="[A-Za-z]+" required>
+                                            <input id="apepat" name="apemat" type="text" class="form-control" pattern="[A-Za-z]+" required>
+                                        </div> 
+                                        <div class="form-group">
+                                            <label>Tel&eacute;fono</label>
+                                            <input id="fono" name="fono" type="text" class="form-control"  pattern="[0-9]{9}"required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Correo</label>
+                                            <label id="dni2">Correo</label>
                                             <input id="email" name="email" type="email" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label id="dni2">DNI</label>
+                                            <label>DNI</label>
                                             <input id="dni" name="dni" type="text" class="form-control" pattern="[0-9]{8}" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tel&eacute;fono</label>
-                                            <input id="fono" name="fono" type="text" class="form-control" pattern="[0-9]{8}" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Activo</label>
@@ -313,7 +313,7 @@
 
                                                             $.ajax({
                                                                 type: 'GET',
-                                                                url: "clientecontroller.do?txtProceso=mostrarID",
+                                                                url: "entrenadorcontroller.do?txtProceso=mostrarID",
                                                                 data: {id: id},
                                                                 success: function (result) {
 
@@ -321,12 +321,12 @@
                                                                     console.log(result.correo);
 
                                                                     $('#editClienteModal #id_cli').val(id);
-                                                                    $('#editClienteModal #nombre').val(result.nombres);
-                                                                    $('#editClienteModal #apepat').val(result.apepat);
-                                                                    $('#editClienteModal #apemat').val(result.apemat);
+                                                                    $('#editClienteModal #nombre').val(result.nombre);
+                                                                    $('#editClienteModal #apepat').val(result.apellidopat);  
+                                                                    $('#editClienteModal #apemat').val(result.apellidomat);
                                                                     $('#editClienteModal #email').val(result.correo);
-                                                                    $('#editClienteModal #dni').val(result.numdoc);
-                                                                    $('#editClienteModal #fono').val(result.telefono);
+                                                                    $('#editClienteModal #dni').val(result.dni);
+                                                                    $('#editClienteModal #fono').val(result.celular);
                                                                     $('#editClienteModal #activo').val(result.estado);
                                                                     var activo = result.estado;
 

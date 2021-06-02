@@ -1,10 +1,15 @@
 ﻿<!DOCTYPE html>
 <%
-
     HttpSession objsession = request.getSession(false);
     String usuario = (String) objsession.getAttribute("userName");
     String tipoUsuario = (String) objsession.getAttribute("tipoUsuario");
-    if (tipoUsuario.equals("admin") || usuario.equals("")) {
+    
+    if (usuario == null || tipoUsuario == null) {
+        response.sendRedirect("error.jsp");
+        return;
+    }
+    
+    if (tipoUsuario.equals("admin") || usuario.equals("") || usuario == null) {
         response.sendRedirect("error.jsp");
     }
 
@@ -48,7 +53,7 @@
 
                                 <!--<a href="#" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>-->
                                 <!--<a href="#" class="btn btn-primary" title="New Task"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>-->
-                                <a href="index.jsp" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+                                <a href="cerrar.do" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
 
 
                             </div>

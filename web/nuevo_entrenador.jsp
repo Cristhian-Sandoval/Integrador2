@@ -96,13 +96,11 @@
                         <li>
                             <a href="#"><i class="fa fa-yelp "></i>Reservas <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                 <li>
-                                    <a href="reservacontroller.do?txtProceso=mostrara"><i class="fa fa-users "></i>Listar Reservas</a>
-                                </li>   
+
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-flash "></i>Entrenadores <span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-flash "></i>Entrenadores </a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="nuevo_entrenador.jsp"><i class="fa fa-user"></i>Nuevo Entrenador</a>
@@ -132,7 +130,7 @@
                 <div id="page-inner">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="page-head-line">Registro de cliente</h1>
+                            <h1 class="page-head-line">Registro de entrenador</h1>
                             <!--<h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>-->
 
                         </div>
@@ -142,11 +140,11 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    Datos Cliente
+                                    Datos Entrenador
                                 </div>
 
                                 <div class="panel-body" >
-                                    <form action="clientecontroller.do" method="post">
+                                    <form action="entrenadorcontroller.do" method="post">
                                         <input type="hidden" name="txtProceso" value="registro">
                                             <div class="form-group">
                                                 <label>Nombres</label>
@@ -156,12 +154,17 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Apellido Paterno</label>
-                                                <input class="form-control" type="text" id="txtApellidoPat" name="txtApellidoPat" pattern="[A-Za-z]+" required>
+                                                <input class="form-control" type="text" id="txtApellidos" name="txtApepat" pattern="[A-Za-z]+" required>
+
+                                            </div>
+                                             <div class="form-group">
+                                                <label>Apellido Materno</label>
+                                                <input class="form-control" type="text" id="txtApellidos" name="txtApemat" pattern="[A-Za-z]+" required>
 
                                             </div>
                                             <div class="form-group">
-                                                <label>Apellido Materno</label>
-                                                <input class="form-control" type="text" id="txtApellidoMat" name="txtApellidoMat" pattern="[A-Za-z]+" required> 
+                                                <label>Tel&eacutefono</label>
+                                                <input class="form-control" type="text" id="txtTel" name="txtTel" pattern="[0-9]{9}" required>
 
                                             </div>
                                             <div class="form-group">
@@ -175,11 +178,7 @@
                                                 <input class="form-control" type="text" id="txtDNI" name="txtDNI" pattern="[0-9]{8}" required>
 
                                             </div>
-                                            <div class="form-group">
-                                                <label>Tel&eacutefono</label>
-                                                <input class="form-control" type="text" id="txtTel" name="txtTel" pattern="[0-9]{9}" required>
-
-                                            </div>
+                                            
 
                                             <button type="submit" class="btn btn-info">Registrar </button>
 

@@ -33,17 +33,17 @@
                             <br />
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                                <input type="text" class="form-control" id="txtCorreo"  name="txtCorreo" placeholder="Your Email " 
+                                <input type="text" class="form-control" id="txtCorreo"  name="txtCorreo" placeholder="Ingresar tu correo " 
                                        oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required=""/>
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>                     
-                                <input type="password" class="form-control" id="txtClave" name="txtClave" placeholder="Your Password" 
+                                <input type="password" class="form-control" id="txtClave" name="txtClave" placeholder="Ingresa tu clave" 
                                        oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required/>
                             </div>
                             <div class="form-group">
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" /> Remember me
+                                    <input type="checkbox" /> Recordar
                                 </label>
                                 <span class="pull-right">
                                   <!--  <a href="index.html" >Forget password ? </a>  -->
@@ -53,7 +53,7 @@
                             <!-- <a href="index.html" class="btn btn-primary ">Login Now</a> -->
                              <button type="submit" class="btn btn-lg btn-primary">Iniciar Sesion</button>
                             <hr />
-                            Nuevo registro ? <a href="nuevo_usuario.jsp" >click here </a> 
+                            Nuevo registro ? <a href="nuevo_usuario.jsp" > Haz click aqu&iacute; </a> 
                         </form>
                     </div>
 
