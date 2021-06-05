@@ -95,8 +95,8 @@
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-yelp "></i>Reservas <span class="fa arrow"></span></a>
-                             <ul class="nav nav-second-level">
-                                 <li>
+                            <ul class="nav nav-second-level">
+                                <li>
                                     <a href="reservacontroller.do?txtProceso=mostrara"><i class="fa fa-users "></i>Listar Reservas</a>
                                 </li>   
                             </ul>
@@ -114,10 +114,14 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-caret-square-o-right "></i>Planes <span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-caret-square-o-right "></i>Salas <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-
-
+                                <li>
+                                    <a href="nueva_sala.jsp"><i class="fa fa-area-chart"></i>Nueva Sala</a>
+                                </li>
+                                <li>
+                                    <a href="salacontroller.do?txtProceso=mostrar"><i class="fa fa-list"></i>Listar Salas</a>
+                                </li>
 
                             </ul>
                         </li>
@@ -167,7 +171,7 @@
                                                          <!--<td>${reserva.getIdReserva()}</td>-->
                                                         <td>${reserva.getIdcliente().getNombres()}</td>
                                                         <td>${reserva.getIdcliente().getApepat()}</td>  
-                                                         <td>${reserva.getIdcliente().getApemat()}</td>
+                                                        <td>${reserva.getIdcliente().getApemat()}</td>
                                                         <td>${reserva.getFecha()}</td>
                                                         <td>${reserva.getHora().getHora()}</td>
                                                         <td>${reserva.getIdsala().getDescripcion()}</td>
@@ -324,7 +328,7 @@
 
                                                                     $('#editClienteModal #id_cli').val(id);
                                                                     $('#editClienteModal #nombre').val(result.nombre);
-                                                                    $('#editClienteModal #apepat').val(result.apellidopat);  
+                                                                    $('#editClienteModal #apepat').val(result.apellidopat);
                                                                     $('#editClienteModal #apemat').val(result.apellidomat);
                                                                     $('#editClienteModal #email').val(result.correo);
                                                                     $('#editClienteModal #dni').val(result.dni);

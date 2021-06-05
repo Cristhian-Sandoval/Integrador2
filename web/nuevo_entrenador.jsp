@@ -113,9 +113,13 @@
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-caret-square-o-right "></i>Planes <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-
-
+                             <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="nueva_sala.jsp"><i class="fa fa-area-chart"></i>Nueva Sala</a>
+                                </li>
+                                <li>
+                                    <a href="salacontroller.do?txtProceso=mostrar"><i class="fa fa-list"></i>Listar Salas</a>
+                                </li>
 
                             </ul>
                         </li>

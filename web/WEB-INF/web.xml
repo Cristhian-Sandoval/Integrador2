@@ -17,6 +17,11 @@
         <servlet-name>EntrenadorController</servlet-name>
         <servlet-class>com.gym.controller.EntrenadorController</servlet-class>
     </servlet>
+      <servlet>
+        <servlet-name>SalaController</servlet-name>
+        <servlet-class>com.gym.controller.SalaController</servlet-class>
+    </servlet>
+    
     
     <servlet>
         <servlet-name>Logout</servlet-name>
@@ -38,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>EntrenadorController</servlet-name>
         <url-pattern>/entrenadorcontroller.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SalaController</servlet-name>
+        <url-pattern>/salacontroller.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>

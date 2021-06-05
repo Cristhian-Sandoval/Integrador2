@@ -25,6 +25,11 @@ public class Sala {
     public Sala() {
     }
 
+    public Sala(String descripcion, int aforo) {
+        this.descripcion = descripcion;
+        this.aforo = aforo;
+    }
+
     public Sala(int idSala) {
         this.idSala = idSala;
     }

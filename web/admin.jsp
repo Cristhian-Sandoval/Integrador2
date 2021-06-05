@@ -98,7 +98,7 @@
                         <li>
                             <a href="#"><i class="fa fa-yelp "></i>Reservas <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                 <li>
+                                <li>
                                     <a href="reservacontroller.do?txtProceso=mostrara"><i class="fa fa-users "></i>Listar Reservas</a>
                                 </li>   
                             </ul>
@@ -116,10 +116,14 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-caret-square-o-right "></i>Planes <span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-caret-square-o-right "></i>Salas <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-
-
+                                <li>
+                                    <a href="nueva_sala.jsp"><i class="fa fa-user"></i>Nueva Sala</a>
+                                </li>
+                                <li>
+                                    <a href="salacontroller.do?txtProceso=mostrar"><i class="fa fa-users "></i>Listar Salas</a>
+                                </li>
 
                             </ul>
                         </li>

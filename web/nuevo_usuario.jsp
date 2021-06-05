@@ -47,7 +47,7 @@
                                             <label>Confirma Password </label>
                                             <input class="form-control" type="password" id="password2" name="password2" pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*" title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al menor un dígito" required>
                                         </div>
-
+                                        <a href="index.jsp"><button type="button" class="btn btn-default">Cancelar</button></a>
                                         <button type="submit" id="submit"value class="btn btn-danger">Registrar</button>
 
                                 </form>
