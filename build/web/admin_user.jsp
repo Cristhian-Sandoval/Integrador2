@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 
     HttpSession objsession = request.getSession(false);
@@ -10,11 +11,12 @@
         return;
     }
 
-    if (tipoUsuario.equals("user") || usuario.equals("")) {
+    if (tipoUsuario.equals("admin") || usuario.equals("")) {
         response.sendRedirect("error.jsp");
     }
 
 %>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8" />
@@ -33,7 +35,7 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
         <!--PAGE LEVEL STYLES-->
         <link href="assets/css/pricing.css" rel="stylesheet" />
-        <link href="https://kit-pro.fontawesome.com/releases/v5.15.3/css/pro.min.css" rel='stylesheet' type='text/css' />
+
     </head>
     <body>
         <div id="wrapper">
@@ -75,58 +77,22 @@
 
 
                         <li>
-                            <a class="active-menu" href="admin.jsp"><i class="fa fa-dashboard "></i>Dashboard</a>
+                            <a class="active-menu" href="admin_user.jsp"><i class="fa fa-dashboard "></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-users "></i>Clientes <span class="fa arrow"></span></a>   
+                            <a href=""><i class="fa fa-desktop "></i>Reserva<span class="fa arrow"></span></a>   
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="nuevo_cliente.jsp"><i class="fa fa-user"></i>Nuevo Cliente</a>
+                                    <input type="hidden" name="txtCliente" id="txtCliente" value="${userName}">
+                                        <a href="reservacontroller.do?txtProceso=mostrar&correo=<c:out value='${userName}'/>"><i class="fa fa-toggle-on"></i>Nueva Reserva</a>
                                 </li>
                                 <li>
-                                    <a href="clientecontroller.do?txtProceso=mostrar"><i class="fa fa-users "></i>Listar Clientes</a>
+                                    <a href="reservacontroller.do?txtProceso=listar&correo=<c:out value='${userName}'/>"><i class="fa fa-bell "></i>Listar Reservas</a>
                                 </li>
 
                             </ul>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-desktop "></i>Usuarios <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
 
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-yelp "></i>Reservas <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="reservacontroller.do?txtProceso=mostrara"><i class="fa fa-users "></i>Listar Reservas</a>
-                                </li>   
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-flash "></i>Entrenadores <span class="fa arrow"></span> </a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="nuevo_entrenador.jsp"><i class="fa fa-user"></i>Nuevo Entrenador</a>
-                                </li>
-                                <li>
-                                    <a href="entrenadorcontroller.do?txtProceso=mostrar"><i class="fa fa-users "></i>Listar Entrenadores</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-caret-square-o-right "></i>Salas <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="nueva_sala.jsp"><i class="fa fa-user"></i>Nueva Sala</a>
-                                </li>
-                                <li>
-                                    <a href="salacontroller.do?txtProceso=mostrar"><i class="fa fa-users "></i>Listar Salas</a>
-                                </li>
-
-                            </ul>
-                        </li>
 
                     </ul>
 
@@ -156,7 +122,7 @@
 
                                         <ul class="plan">
                                             <li class="price"><strong>S/. 25</strong><i class="fa fa-dollar"></i><small>al mes</small></li>
-                                           <!-- <p>ESTE PLAN SOLO SE PUEDE COMPRAR UNA VEZ. Este plan es para 1 mes &uacute;nicamente y no se puede adquirir 2 o m&aacute;s veces. &Uacute;nicamente para nuevos afiliados. </p>-->
+                                            <p>ESTE PLAN SOLO SE PUEDE COMPRAR UNA VEZ. Este plan es para 1 mes &uacute;nicamente y no se puede adquirir 2 o m&aacute;s veces. &Uacute;nicamente para nuevos afiliados. </p>
                                         </ul>
                                     </div>
                                     <div class="panel-footer">
