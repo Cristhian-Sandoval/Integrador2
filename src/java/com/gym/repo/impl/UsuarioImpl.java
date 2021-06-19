@@ -118,7 +118,6 @@ public class UsuarioImpl implements IGenericRepo<Usuario> {
             res = pstm.executeQuery();
 
             while (res.next()) {
-                System.out.println("entra absolute ");
                 datoExits = res.getString(1);
             }
 
@@ -142,7 +141,6 @@ public class UsuarioImpl implements IGenericRepo<Usuario> {
             res = pstm.executeQuery();
 
             while (res.next()) {
-                System.out.println("entra absolute ");
                 datoExits = res.getString(1);
             }
 

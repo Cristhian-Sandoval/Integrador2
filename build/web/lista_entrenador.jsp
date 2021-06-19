@@ -96,7 +96,9 @@
                         <li>
                             <a href="#"><i class="fa fa-yelp "></i>Reservas <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-
+                                <li>
+                                    <a href="reservacontroller.do?txtProceso=mostrara"><i class="fa fa-users "></i>Listar Reservas</a>
+                                </li>   
                             </ul>
                         </li>
                         <li>

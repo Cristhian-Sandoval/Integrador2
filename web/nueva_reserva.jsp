@@ -31,11 +31,13 @@
         <!--CUSTOM MAIN STYLES-->
         <link href="assets/css/custom.css" rel="stylesheet" />
         <!-- GOOGLE FONTS-->
+
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.min.css" >
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" type="text/css" />
             <link rel="stylesheet" href="resources/css/styles_formulario.css">
                 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
                 </head>
                 <body>
                     <div id="wrapper">
@@ -149,8 +151,7 @@
                                                                             </div>
                                                                     </div>-->
                                                                     <div class="input-group">
-                                                                        <input type="date" class="datepicker" name="txtFecha" placeholder="Date" id="txtFecha"
-                                                                               oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required/>
+                                                                        <input type="text" name="txtFecha" id="txtFecha" class="datepicker"  required />
                                                                     </div>
 
 
@@ -214,8 +215,24 @@
                                                                     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.en-GB.min.js" charset="UTF-8"></script>
 
                                                                     <script type="text/javascript">
+
                                                                         $(document).ready(function () {
-                                                                            $('#datepicker').datepicker();
+
+                                                                            $('#txtFecha').datepicker(
+                                                                                    {
+                                                              
+                                                                                        startDate: '+0d',
+                                                                                        format: 'dd/mm/yyyy',
+                                                                                        datesDisabled: [
+                                                                                            "14/06/2021", // 20 de enero de 2019
+                                                                                            "13/06/2021", // 20 de febrero de 2019
+                                                                                        ],
+                                                                                        setMinDate : new Date
+                                                                                    }
+
+                                                                            );
+
+
                                                                         });
 
 

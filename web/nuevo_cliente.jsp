@@ -160,12 +160,12 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Apellido Paterno</label>
-                                                <input class="form-control" type="text" id="txtApellidoPat" name="txtApellidoPat" pattern="[A-Za-z]+" required>
+                                                <input class="form-control" type="text" id="txtApellidoPat" name="txtApellidoPat" pattern="[A-Za-z ]+" required>
 
                                             </div>
                                             <div class="form-group">
                                                 <label>Apellido Materno</label>
-                                                <input class="form-control" type="text" id="txtApellidoMat" name="txtApellidoMat" pattern="[A-Za-z]+" required> 
+                                                <input class="form-control" type="text" id="txtApellidoMat" name="txtApellidoMat" pattern="[A-Za-z ]+" required> 
 
                                             </div>
                                             <div class="form-group">
@@ -176,12 +176,12 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>DNI</label>
-                                                <input class="form-control" type="text" id="txtDNI" name="txtDNI" pattern="[0-9]{8}" required>
+                                                <input class="form-control" type="text" id="txtDNI" name="txtDNI" pattern="[0-9]{8}" title="El DNI debe tener 8 dígitos" required>
 
                                             </div>
                                             <div class="form-group">
                                                 <label>Tel&eacutefono</label>
-                                                <input class="form-control" type="text" id="txtTel" name="txtTel" pattern="[0-9]{9}" required>
+                                                <input class="form-control" type="text" id="txtTel" name="txtTel" pattern="[0-9]{9}" title="El Teléfono debe contener 9 dígitos" required>
 
                                             </div>
 

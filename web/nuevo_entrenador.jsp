@@ -96,7 +96,9 @@
                         <li>
                             <a href="#"><i class="fa fa-yelp "></i>Reservas <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-
+                                <li>
+                                    <a href="reservacontroller.do?txtProceso=mostrara"><i class="fa fa-users "></i>Listar Reservas</a>
+                                </li>   
                             </ul>
                         </li>
                         <li>
@@ -112,8 +114,8 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-caret-square-o-right "></i>Planes <span class="fa arrow"></span></a>
-                             <ul class="nav nav-second-level">
+                            <a href="#"><i class="fa fa-caret-square-o-right "></i>Salas <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
                                 <li>
                                     <a href="nueva_sala.jsp"><i class="fa fa-area-chart"></i>Nueva Sala</a>
                                 </li>
@@ -158,12 +160,12 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Apellido Paterno</label>
-                                                <input class="form-control" type="text" id="txtApellidos" name="txtApepat" pattern="[A-Za-z]+" required>
+                                                <input class="form-control" type="text" id="txtApellidos" name="txtApepat" pattern="[A-Za-z ]+" required>
 
                                             </div>
-                                             <div class="form-group">
+                                            <div class="form-group">
                                                 <label>Apellido Materno</label>
-                                                <input class="form-control" type="text" id="txtApellidos" name="txtApemat" pattern="[A-Za-z]+" required>
+                                                <input class="form-control" type="text" id="txtApellidos" name="txtApemat" pattern="[A-Za-z ]+" required>
 
                                             </div>
                                             <div class="form-group">
@@ -182,7 +184,7 @@
                                                 <input class="form-control" type="text" id="txtDNI" name="txtDNI" pattern="[0-9]{8}" required>
 
                                             </div>
-                                            
+
 
                                             <button type="submit" class="btn btn-info">Registrar </button>
 

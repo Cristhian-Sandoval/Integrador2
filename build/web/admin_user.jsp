@@ -38,6 +38,7 @@
 
     </head>
     <body>
+
         <div id="wrapper">
             <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
@@ -334,6 +335,14 @@
         <script src="assets/js/custom.js"></script>
 
 
-
+        <!-- Código de instalación Cliengo para  www.google.com -->
+        <script type="text/javascript">(function () {
+                var ldk = document.createElement('script');
+                ldk.type = 'text/javascript';
+                ldk.async = true;
+                ldk.src = 'https://s.cliengo.com/weboptimizer/60bc23e93a77dd002aeda352/60bc37d7ade1d5002a3d0ecc.js?platform=onboarding_modular';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ldk, s);
+            })();</script>
     </body>
 </html>

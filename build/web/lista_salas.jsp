@@ -96,7 +96,9 @@
                         <li>
                             <a href="#"><i class="fa fa-yelp "></i>Reservas <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-
+                                <li>
+                                    <a href="reservacontroller.do?txtProceso=mostrara"><i class="fa fa-users "></i>Listar Reservas</a>
+                                </li>   
                             </ul>
                         </li>
                         <li>
@@ -243,7 +245,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Aforo</label>
-                                            <input id="aforo" name="aforo" type="text" class="form-control" pattern="[1-9]{2}" required>
+                                            <input id="aforo" name="aforo" type="text" class="form-control" pattern="[0-9]{2}" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Activo</label>
